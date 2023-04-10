@@ -3,3 +3,15 @@
   min-height: 74px;
   border-bottom: 1px solid #545454;
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 28px 27px 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .header {
+    min-height: 56px;
+  }
+}

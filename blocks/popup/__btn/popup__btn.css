@@ -1,0 +1,12 @@
+.popup__btn {
+  margin-top: 18px;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.22;
+  padding: 14px 14px 18px;
+  border: none;
+  border-radius: 2px;
+}

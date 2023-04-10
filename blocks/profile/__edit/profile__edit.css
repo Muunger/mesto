@@ -1,5 +1,4 @@
 .profile__edit {
-  margin-left: 18px;
   padding: 0;
   width: 24px;
   height: 24px;
@@ -9,4 +8,12 @@
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 420px) {
+  .profile__edit {
+    width: 18px;
+    height: 18px;
+  }
 }
