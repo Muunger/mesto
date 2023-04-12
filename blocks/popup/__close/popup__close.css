@@ -7,4 +7,9 @@
   top: -33px;
   right: -33px;
   border: none;
+  cursor: pointer;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
 }
