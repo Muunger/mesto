@@ -9,4 +9,9 @@
   flex-shrink: 0;
   border: none;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.elements__like:hover {
+  opacity: 0.5;
 }

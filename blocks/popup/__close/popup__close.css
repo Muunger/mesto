@@ -8,6 +8,7 @@
   right: -33px;
   border: none;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .popup__close:hover {

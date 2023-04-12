@@ -9,12 +9,11 @@
   background-repeat: no-repeat;
   cursor: pointer;
   border-radius: 2px;
+  transition: 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-  .profile__add {
-    width: 100px;
-  }
+.profile__add:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 420px) {

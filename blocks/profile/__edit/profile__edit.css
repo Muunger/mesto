@@ -9,6 +9,11 @@
   background-repeat: no-repeat;
   cursor: pointer;
   flex-shrink: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.profile__edit:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 420px) {
