@@ -9,3 +9,16 @@
   flex-direction: column;
   position: relative;
 }
+
+@media screen and (max-width: 768px) {
+  .popup__form {
+    max-width: 310px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .popup__form {
+    padding: 25px 22px;
+    max-width: 238px;
+  }
+}

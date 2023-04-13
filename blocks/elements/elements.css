@@ -2,3 +2,10 @@
   padding-top: 50px;
   padding-bottom: 67px;
 }
+
+@media screen and (max-width: 420px) {
+  .elements {
+    padding-top: 36px;
+    padding-bottom: 48px;
+  }
+}

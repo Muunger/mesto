@@ -2,17 +2,19 @@
   margin: 16px 0 0;
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.22;
+  line-height: 22px;
 }
 
 @media screen and (max-width: 768px) {
   .profile__proff {
-    font-size: 16px;
+    text-align: center;
   }
 }
 
 @media screen and (max-width: 420px) {
   .profile__proff {
+    margin: 14px 0 0;
     font-size: 14px;
+    line-height: 17px;
   }
 }
