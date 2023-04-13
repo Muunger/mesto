@@ -1,12 +1,12 @@
-let btnEdit = document.querySelector('.profile__edit');
-let popup = document.querySelector('.popup');
+const btnEdit = document.querySelector('.profile__edit');
+const popup = document.querySelector('.popup');
 
-let userName = document.querySelector('.profile__name');
-let aboutMe = document.querySelector('.profile__proff');
+const userName = document.querySelector('.profile__name');
+const aboutMe = document.querySelector('.profile__proff');
 
-let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup__input_name');
-let jobInput = document.querySelector('.popup__input_job');
+const formElement = document.querySelector('.popup__form');
+const nameInput = document.querySelector('.popup__input_name');
+const jobInput = document.querySelector('.popup__input_job');
 
 btnEdit.addEventListener('click', function () {
   popup.classList.add('popup_opened');
@@ -14,7 +14,7 @@ btnEdit.addEventListener('click', function () {
   jobInput.setAttribute('value', aboutMe.textContent);
 });
 
-let popupClose = document.querySelector('.popup__close');
+const popupClose = document.querySelector('.popup__close');
 
 popupClose.addEventListener('click', function (evt) {
   evt.preventDefault();
