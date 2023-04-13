@@ -1,4 +1,4 @@
-# Проект: ![logo](./images/logo-white.svg)
+# Проект: ![logo](./images/logo.svg)
 
 ### Технологии
 
@@ -15,4 +15,4 @@
 
 **Gh-pages**
 
-* [ссылка на проект](https://muunger.github.io/mesto/)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://muunger.github.io/mesto/)
