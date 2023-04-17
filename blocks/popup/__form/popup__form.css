@@ -1,24 +1,4 @@
 .popup__form {
-  background-color: #fff;
-  color: #000;
-  max-width: 358px;
-  width: 100%;
-  padding: 34px 36px 37px;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  position: relative;
-}
-
-@media screen and (max-width: 768px) {
-  .popup__form {
-    max-width: 310px;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .popup__form {
-    padding: 25px 22px;
-    max-width: 238px;
-  }
 }

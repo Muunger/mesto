@@ -24,11 +24,11 @@
         <div class="profile__info">
           <div class="profile__title">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit"></button>
+            <p class="profile__proff">Исследователь океана</p>
           </div>
-          <p class="profile__proff">Исследователь океана</p>
+          <button type="button" class="profile__edit"></button>
         </div>
-        <button class="profile__add"></button>
+        <button type="button" class="profile__add"></button>
       </section>
 
       <!-- elements -->
@@ -40,7 +40,7 @@
             <img src="./images/place-1.jpg" alt="Прозрачный лёд на озере с узорами" class="elements__image">
             <div class="elements__info">
               <h2 class="elements__title">Байкал</h2>
-              <button class="elements__like"></button>
+              <button type="button" class="elements__like"></button>
             </div>
           </li>
 
@@ -48,7 +48,7 @@
             <img src="./images/place-2.jpg" alt="Густой зелёный лес с высоты птичьего полёта" class="elements__image">
             <div class="elements__info">
               <h2 class="elements__title">Тайга</h2>
-              <button class="elements__like"></button>
+              <button type="button" class="elements__like"></button>
             </div>
           </li>
 
@@ -56,7 +56,7 @@
             <img src="./images/place-3.jpg" alt="Зрелая пшеница расстущая на поле" class="elements__image">
             <div class="elements__info">
               <h2 class="elements__title">Поля</h2>
-              <button class="elements__like"></button>
+              <button type="button" class="elements__like"></button>
             </div>
           </li>
 
@@ -64,7 +64,7 @@
             <img src="./images/place-4.jpg" alt="Гора в фокусе на закате из далека" class="elements__image">
             <div class="elements__info">
               <h2 class="elements__title">Камчатка</h2>
-              <button class="elements__like"></button>
+              <button type="button" class="elements__like"></button>
             </div>
           </li>
 
@@ -72,7 +72,7 @@
             <img src="./images/place-5.jpg" alt="Снежная гора из иллюминатора самолета" class="elements__image">
             <div class="elements__info">
               <h2 class="elements__title">Эльбрус</h2>
-              <button class="elements__like"></button>
+              <button type="button" class="elements__like"></button>
             </div>
           </li>
 
@@ -80,7 +80,7 @@
             <img src="./images/place-6.jpg" alt="Горная река бирюзового цвета" class="elements__image">
             <div class="elements__info">
               <h2 class="elements__title">Алтай</h2>
-              <button class="elements__like"></button>
+              <button type="button" class="elements__like"></button>
             </div>
           </li>
 
@@ -92,7 +92,7 @@
     <!-- footer -->
 
     <footer class="footer">
-      <p class="footer__copyright" lang="en">&copy;2023 Mesto Russia</p>
+      <p class="footer__copyright" lang="en">&copy; 2023 Mesto Russia</p>
     </footer>
 
   </div>
@@ -101,13 +101,15 @@
 
   <div class="popup">
     <div class="popup__container">
-      <form class="popup__form">
-        <button class="popup__close"></button>
+      <div class="popup__body">
+        <button type="button" class="popup__close"></button>
         <h2 class="popup__name">Редактировать профиль</h2>
-        <input type="text" placeholder="Имя" class="popup__input popup__input_name">
-        <input type="text" placeholder="О себе" class="popup__input popup__input_job">
-        <button class="popup__btn" type="submit">Сохранить</button>
-      </form>
+        <form name="edit-profile" class="popup__form">
+          <input type="text" name="username" placeholder="Имя" class="popup__input popup__input_name_value">
+          <input type="text" name="job" placeholder="О себе" class="popup__input popup__input_job_value">
+          <button class="popup__btn" type="submit">Сохранить</button>
+        </form>
+      </div>
     </div>
   </div>
   
