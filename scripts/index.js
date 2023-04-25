@@ -4,7 +4,6 @@ const popupEdit = document.querySelector('#popup-edit-profile');
 const btnAddPhoto = document.querySelector('.profile__add');
 const popupAddPhoto = document.querySelector('#popup-add-photo');
 
-
 const userName = document.querySelector('.profile__name');
 const aboutMe = document.querySelector('.profile__proff');
 
@@ -18,28 +17,31 @@ btnEdit.addEventListener('click', function () {
   jobInput.value = aboutMe.textContent;
 });
 
-btnAddPhoto.addEventListener('click', function () {
-  popupAddPhoto.classList.add('popup_opened');
-});
+const popupClose = document.querySelectorAll('.popup__close');
+const popupCloseElement = Array.from(popupClose);
 
-const popupAddPhotoClose = document.querySelector('.popup__close_add_photo');
-popupAddPhotoClose.addEventListener('click', function () {
-  popupAddPhoto.classList.remove('popup_opened');
-})
-
-const popupEditClose = document.querySelector('.popup__close_edit_profile');
-function removeClassPopupOpenedEditProfile () {
+function removeClassPopupOpened () {
   popupEdit.classList.remove('popup_opened');
 };
-popupEditClose.addEventListener('click', removeClassPopupOpenedEditProfile);
- 
+popupCloseElement[0].addEventListener('click', removeClassPopupOpened);
+
 function handleFormSubmit (evt) {
   evt.preventDefault();
   userName.textContent = nameInput.value;
   aboutMe.textContent = jobInput.value;
-  removeClassPopupOpenedEditProfile();
+  removeClassPopupOpened();
 };
 formElement.addEventListener('submit', handleFormSubmit);
+
+btnAddPhoto.addEventListener('click', function () {
+  popupAddPhoto.classList.add('popup_opened');
+});
+
+popupCloseElement[1].addEventListener('click', function () {
+  popupAddPhoto.classList.remove('popup_opened');
+});
+
+
 
 const initialCards = [
   {
