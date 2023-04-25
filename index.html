@@ -99,7 +99,7 @@
 
   <!-- popup -->
 
-  <div class="popup">
+  <div class="popup" id="popup-edit-profile">
     <div class="popup__container">
       <button type="button" class="popup__close"></button>
       <h2 class="popup__name">Редактировать профиль</h2>
@@ -110,6 +110,30 @@
       </form>
     </div>
   </div>
+
+  <div class="popup" id="popup-add-photo">
+    <div class="popup__container">
+      <button type="button" class="popup__close"></button>
+      <h2 class="popup__name">Новое место</h2>
+      <form name="add-photo" class="popup__form">
+        <input type="text" name="place" placeholder="Название" class="popup__input">
+        <input type="url" name="link" placeholder="Ссылка на картинку" class="popup__input">
+        <button class="popup__btn" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- template -->
+
+  <template id="item-template">
+    <li class="elements__item">
+      <img src="./images/place-1.jpg" alt="Прозрачный лёд на озере с узорами" class="elements__image">
+      <div class="elements__info">
+        <h2 class="elements__title">Байкал</h2>
+        <button type="button" class="elements__like"></button>
+      </div>
+    </li>
+  </template>
   
   <script src="./scripts/index.js" defer></script>
 </body>
