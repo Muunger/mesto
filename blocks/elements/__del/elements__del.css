@@ -9,4 +9,10 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.elements__del:hover {
+  opacity: 0.6;
 }
