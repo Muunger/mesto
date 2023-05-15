@@ -8,7 +8,7 @@ const formEdit = document.querySelector('.popup__form_edit_profile');
 const nameInput = formEdit.querySelector('.popup__input_value_name');
 const jobInput = formEdit.querySelector('.popup__input_value_job');
 const popupShowImage = document.querySelector('.popup_type_show-image');
-const imgPopup = document.querySelector('.popup__image')
+const imgPopup = document.querySelector('.popup__image');
 const capturePopup = document.querySelector('.popup__text');
 const formAdd = document.querySelector('.popup__form_add_photo');
 const placeInput = formAdd.querySelector('.popup__input_value_place');
@@ -70,9 +70,25 @@ initialCards.forEach( (cardData) => {
   newCard.append(createCards(cardData));
 });
 
+document.querySelectorAll('.popup').forEach( (popupItem) => {
+  const childPopup = popupItem.closest('.popup');
+  popupItem.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closeModal(childPopup);
+    }
+  });
+});
+
 document.querySelectorAll('.popup__close').forEach( button => {
   const buttonsPopup = button.closest('.popup');
   button.addEventListener('click', () => closeModal(buttonsPopup));
+});
+
+document.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    const popupActive = document.querySelector('.popup_opened');
+    closeModal(popupActive);
+  }
 });
 
 formEdit.addEventListener('submit', handleFormSubmit);
