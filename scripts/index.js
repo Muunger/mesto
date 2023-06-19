@@ -1,4 +1,4 @@
-import Card from './card.js';
+import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 
 const btnEdit = document.querySelector('.profile__edit');
@@ -18,6 +18,16 @@ const placeInput = formAdd.elements.place;
 const linkInput = formAdd.elements.link;
 const newCard = document.querySelector('.elements__list');
 const popups = document.querySelectorAll('.popup');
+const configFormSelector = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__btn',
+  inactiveButtonClass: 'popup__btn_invalid',
+  inputErrorClass: 'popup__input_type_error',
+};
+
+const formValidation = new FormValidator(configFormSelector);
+formValidation.enableValidation();
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -64,7 +74,7 @@ initialCards.forEach((item) => {
   const card = new Card(item, '#item-template', openImagePopup);
   const cardElement = card.generateCard();
   newCard.append(cardElement);
-})
+});
 
 popups.forEach( (popup) => {
   popup.addEventListener('mousedown', (evt) => {

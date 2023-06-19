@@ -72,14 +72,3 @@ export default class FormValidator {
     });
   }
 };
-
-const configFormSelector = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__btn',
-  inactiveButtonClass: 'popup__btn_invalid',
-  inputErrorClass: 'popup__input_type_error',
-};
-
-const formValidation = new FormValidator(configFormSelector);
-formValidation.enableValidation();
