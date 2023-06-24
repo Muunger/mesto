@@ -16,7 +16,7 @@ const capturePopup = document.querySelector('.popup__text');
 const formAdd = document.forms['add-photo'];
 const placeInput = formAdd.elements.place;
 const linkInput = formAdd.elements.link;
-const newCard = document.querySelector('.elements__list');
+const cardContainer = document.querySelector('.elements__list');
 const popups = document.querySelectorAll('.popup');
 const configFormSelector = {
   formSelector: '.popup__form',
@@ -26,8 +26,11 @@ const configFormSelector = {
   inputErrorClass: 'popup__input_type_error',
 };
 
-const formValidation = new FormValidator(configFormSelector);
-formValidation.enableValidation();
+const formValidationPopupAddPhoto = new FormValidator(configFormSelector, popupAddPhoto);
+formValidationPopupAddPhoto.enableValidation();
+
+const formValidationPopupEdit = new FormValidator(configFormSelector, popupEdit);
+formValidationPopupEdit.enableValidation();
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -53,12 +56,16 @@ function closeModal(modal) {
   document.removeEventListener('keydown', closeByEscape);
 };
 
+function newCardCopyClass(item) {
+  const card = new Card(item, '#item-template', openImagePopup);
+  const cardElement = card.generateCard();
+  return cardElement;
+};
+
 function handleNewCardSubmit(evt) {
   evt.preventDefault();
   const card = { name: placeInput.value, link: linkInput.value };
-  const renderCard = new Card(card, '#item-template', openImagePopup);
-  const renderCardElement = renderCard.generateCard();
-  newCard.prepend(renderCardElement);
+  cardContainer.prepend(newCardCopyClass(card));
   closeModal(popupAddPhoto);
   formAdd.reset();
 };
@@ -71,9 +78,7 @@ function openImagePopup(cardData) {
 };
 
 initialCards.forEach((item) => {
-  const card = new Card(item, '#item-template', openImagePopup);
-  const cardElement = card.generateCard();
-  newCard.append(cardElement);
+  cardContainer.append(newCardCopyClass(item));
 });
 
 popups.forEach( (popup) => {
@@ -95,6 +100,8 @@ btnEdit.addEventListener('click', () => {
   jobInput.value = aboutMe.textContent;
 });
 
-btnAddPhoto.addEventListener('click', () => openModal(popupAddPhoto));
+btnAddPhoto.addEventListener('click', () => {
+  openModal(popupAddPhoto);
+});
 
 formAdd.addEventListener('submit', handleNewCardSubmit);

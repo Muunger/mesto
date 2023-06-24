@@ -31,7 +31,7 @@ export default class Card {
       evt.target.classList.toggle('elements__like_active');
     });
     this._element.querySelector('.elements__del').addEventListener('click', (evt) => {
-      evt.target.closest('.elements__item').remove();
+      this._element.remove();
     });
   }
 }
