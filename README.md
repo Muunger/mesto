@@ -1,4 +1,4 @@
-# Проект: ![logo](.src/images/logo.svg)
+# Проект: ![logo](./src/images/logo.svg)
 
 ### Технологии
 
