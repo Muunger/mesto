@@ -15,10 +15,11 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector('.elements__image');
     this._setEventListener();
     this._element.querySelector('.elements__title').textContent = this._name;
-    this._element.querySelector('.elements__image').src = this._link;
-    this._element.querySelector('.elements__image').alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
 
     return this._element;
   }
@@ -30,7 +31,7 @@ export default class Card {
     this._element.querySelector('.elements__like').addEventListener('click', (evt) => {
       evt.target.classList.toggle('elements__like_active');
     });
-    this._element.querySelector('.elements__del').addEventListener('click', (evt) => {
+    this._element.querySelector('.elements__del').addEventListener('click', () => {
       this._element.remove();
     });
   }

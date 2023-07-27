@@ -1,5 +1,5 @@
 import './index.css';
-import { initialCards } from '../scripts/components/cards.js';
+import { initialCards } from '../scripts/utils/cards.js';
 import Card from '../scripts/components/Card.js';
 import FormValidator from '../scripts/components/FormValidator.js';
 import Section from '../scripts/components/Section.js';
@@ -11,11 +11,6 @@ import {
   popupEdit,
   btnAddPhoto,
   popupAddPhoto,
-  userName,
-  aboutMe,
-  formEdit,
-  popupShowImage,
-  formAdd,
   configFormSelector} from '../scripts/utils/constants.js';
 
 const formValidationPopupAddPhoto = new FormValidator(configFormSelector, popupAddPhoto);
@@ -39,36 +34,35 @@ const section = new Section({
 section.renderItems();
 
 const newClassPopupAddPhoto = new PopupWithForm({
-  selector: popupAddPhoto,
+  popupSelector: '.popup_type_add-photo',
   handleFormSubmit: (formData) => {
     section.prependAddItem(createCard(formData));
     newClassPopupAddPhoto.close();
   }
-}, formAdd);
+});
 newClassPopupAddPhoto.setEventListeners();
 
 btnAddPhoto.addEventListener('click', () => {
   newClassPopupAddPhoto.open();
 });
 
-const userInfo = new UserInfo({name: userName, job: aboutMe});
+const userInfo = new UserInfo({username: '.profile__name', job: '.profile__proff'});
 
 const newClassPopupEdit = new PopupWithForm({
-  selector: popupEdit, 
+  popupSelector: '.popup_type_edit-profile', 
   handleFormSubmit: (formData) => {
     userInfo.setUserInfo(formData);
     newClassPopupEdit.close();
   }
-}, formEdit);
+});
 newClassPopupEdit.setEventListeners();
 
 btnEdit.addEventListener('click', () => {
   newClassPopupEdit.open();
-  userInfo.getUserInfo();
+  newClassPopupEdit.setInputValues(userInfo.getUserInfo());
 });
 
 function handleCardClick(cardData) {
-  const popupWithImage = new PopupWithImage(popupShowImage, initialCards);
+  const popupWithImage = new PopupWithImage('.popup_type_show-image');
   popupWithImage.open(cardData);
-  popupWithImage.setEventListeners();
 };
