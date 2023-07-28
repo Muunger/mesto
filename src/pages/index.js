@@ -62,7 +62,9 @@ btnEdit.addEventListener('click', () => {
   newClassPopupEdit.setInputValues(userInfo.getUserInfo());
 });
 
+const popupWithImage = new PopupWithImage('.popup_type_show-image');
+popupWithImage.setEventListeners();
+
 function handleCardClick(cardData) {
-  const popupWithImage = new PopupWithImage('.popup_type_show-image');
   popupWithImage.open(cardData);
 };
