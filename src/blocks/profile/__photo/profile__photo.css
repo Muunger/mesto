@@ -1,0 +1,7 @@
+.profile__photo {
+  background-image: url(../../../images/edit.svg);
+  background-size: 26px 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
