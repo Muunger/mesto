@@ -4,4 +4,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: #000;
+  border: none;
+  outline: none;
 }
