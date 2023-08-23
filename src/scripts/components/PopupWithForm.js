@@ -28,6 +28,10 @@ export default class PopupWithForm extends Popup {
     });
   }
 
+  getButtonStartText(text) {
+    return this._popupBtn.textContent = text;
+  }
+
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {

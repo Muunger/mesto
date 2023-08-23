@@ -34,18 +34,13 @@ const userInfo = new UserInfo(
     avatar: '.profile__avatar'
   });
 
-api.getUser()
-  .then(res => {
-    userId = res._id;
-    userInfo.setUserInfo(res);
-  })
-  .catch(err => console.log(err));
+const cardsContainer = new Section(createCard, '.elements__list');
 
-const section = new Section(createCard, '.elements__list');
-
-api.getInitialCards()
-  .then(res => {
-    section.renderItems(res)
+Promise.all([api.getUser(), api.getInitialCards()])
+  .then((res) => {
+    userId = res[0]._id;
+    userInfo.setUserInfo(res[0]);
+    cardsContainer.renderItems(res[1]);
   })
   .catch(err => console.log(err));
 
@@ -57,7 +52,7 @@ function createCard({ data, position = "prepend"}) {
     userId,
     handleLikeCard
   }, '#item-template').generateCard();
-  section.addItem(card, position);
+  cardsContainer.addItem(card, position);
 };
 
 function handleLikeCard(instance) {
@@ -73,10 +68,13 @@ const newClassPopupAddPhoto = new PopupWithForm({
   handleFormSubmit: (formData) => {
     api.addCard(formData)
       .then((res) => {
-        createCard({data: res, position: "prepend"})
+        createCard({data: res, position: "prepend"});
+        newClassPopupAddPhoto.close();
       })
-      .catch(err => console.log(err));
-    newClassPopupAddPhoto.close();
+      .catch(err => console.log(err))
+      .finally(() => {
+        newClassPopupAddPhoto.getButtonStartText('Создать');
+      })
   }
 });
 newClassPopupAddPhoto.setEventListeners();
@@ -90,10 +88,13 @@ const newClassPopupEdit = new PopupWithForm({
   handleFormSubmit: (formData) => {
     api.editProfile(formData)
       .then((res) => {
-        userInfo.setUserInfo(res)
+        userInfo.setUserInfo(res);
+        newClassPopupEdit.close();
       })
-      .catch(err => console.log(err));
-    newClassPopupEdit.close();
+      .catch(err => console.log(err))
+      .finally(() => {
+        newClassPopupEdit.getButtonStartText('Сохранить');
+      })
   }
 });
 newClassPopupEdit.setEventListeners();
@@ -115,10 +116,13 @@ const newClassPopupAvatar = new PopupWithForm({
   handleFormSubmit: (formData) => {
     api.editAvatar(formData)
       .then((res) => {
-        userInfo.setUserInfo(res)
+        userInfo.setUserInfo(res);
+        newClassPopupAvatar.close();
       })
-      .catch(err => console.log(err));
-    newClassPopupAvatar.close();
+      .catch(err => console.log(err))
+      .finally(() => {
+        newClassPopupAvatar.getButtonStartText('Сохранить');
+      })
   }
 });
 newClassPopupAvatar.setEventListeners();
